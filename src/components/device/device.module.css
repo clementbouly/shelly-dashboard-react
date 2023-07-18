@@ -1,0 +1,31 @@
+.card {
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	flex: 1;
+	min-width: 13rem;
+	min-height: 12rem;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.card > * {
+	color: white;
+	text-align: center;
+}
+
+img{
+    height: 8rem;
+    margin: 1rem 0;
+}
+
+h2 {
+	margin-bottom: 0.5rem;
+	font-size: 2rem;
+}

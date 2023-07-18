@@ -1,0 +1,40 @@
+:root {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background: linear-gradient(to right, #3a6186, #89253e);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 4rem;
+	cursor: pointer;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 3rem;
+}
+
+.header > input {
+	align-self: center;
+}
+
+a {
+	text-decoration: none;
+}
+p {
+	margin: 0;
+}
+h2 {
+	margin-bottom: 0.5rem;
+	font-size: 2rem;
+}
