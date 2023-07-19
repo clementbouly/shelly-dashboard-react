@@ -3,4 +3,5 @@ export interface Device {
     name: string;
     icon: string;
     order: number;
+    status?: boolean;
 }
