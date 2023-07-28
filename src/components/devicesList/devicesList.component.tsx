@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { DEVICES } from "../../data/devices"
 import { Device } from "../../model/device.model"
 import { deviceService } from "../../services/device.service"
 import DeviceComponent from "../device/device.component"
@@ -14,7 +15,7 @@ const DevicesListComponent = ({ filter }: DevicesListProps) => {
 	useEffect(() => {
 		;(async () => {
 			try {
-				const devicesConfig = await deviceService.getDevicesConfig()
+				const devicesConfig = DEVICES
 				const devicesUpdated: Device[] = []
 
 				const getStatusPromises = devicesConfig.map(async (device: Device) => {
@@ -28,9 +29,6 @@ const DevicesListComponent = ({ filter }: DevicesListProps) => {
 						console.error(error)
 					}
 				})
-
-				
-
 				await Promise.all(getStatusPromises) // Wait for all promises to resolve
 				setDevices(devicesUpdated)
 			} catch (error) {

@@ -2,8 +2,8 @@
 .status_container{
 	display: flex;
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	bottom: 0.5rem;
+	right: 0.5rem;
 	
 }
 
@@ -13,24 +13,4 @@
     aspect-ratio: 1;
     background: black;
     border-radius: 50%;
-}
-
-.statusLED {
-	margin: 0 auto;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: black;
-}
-
-.statusLED__on {
-	background-color: #abff00;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -.75px 5px .75px, inset #304701 0 -.75px 7px, #89ff00 0 1.5px 9px;
-}
-
-.statusLED__off{
-	background-color: #ff0000;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -.75px 5px .75px, inset #4a0000 0 -.75px 7px, #ff0000 0 1.5px 9px;
 }
