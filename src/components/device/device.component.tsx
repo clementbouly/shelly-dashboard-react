@@ -1,25 +1,20 @@
 import { Device } from "../../model/device.model"
 import { API_URL } from "../../services/device.service"
 import styles from "./device.module.css"
+import DeviceActionsComponent from "./deviceActions/deviceActions.component"
 import DeviceStatusComponent from "./deviceStatus/deviceStatus.component"
 import { ReactComponent as SettingIcon } from "/src/assets/setting-svgrepo-com.svg"
 
 interface DeviceComponentProps extends Device {
-	updateStatus: (id: number) => void
+	updateStatus: (id: number, relayIndex: number, relayStatus: boolean) => void
 }
 
 const DeviceComponent = ({ updateStatus, ...props }: DeviceComponentProps) => {
 	return (
-		<span
-			className={styles.card}
-			onClick={() => {
-				updateStatus(props.id)
-			}}
-		>
+		<span className={styles.card}>
 			<h2>{props.name}</h2>
-			<img className={styles.icon__action} src={props.icon} alt={props.name} />
+			<DeviceActionsComponent updateStatus={updateStatus} {...props} />
 			<a href={`${API_URL}.${props.id}`}>
-				{/* <img className={styles.icon__setting} src={SettingIcon} alt="Settings" /> */}
 				<SettingIcon className={styles.icon__setting} />
 			</a>
 

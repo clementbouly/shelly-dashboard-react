@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react"
-import { DEVICES } from "../../data/devices"
 import { Device } from "../../model/device.model"
 import { deviceService } from "../../services/device.service"
 import DeviceComponent from "../device/device.component"
 import style from "./devicesList.module.css"
 
-interface DevicesListProps {
-	filter: string
-}
-
-const DevicesListComponent = ({ filter }: DevicesListProps) => {
+const DevicesListComponent = () => {
 	const [devices, setDevices] = useState<Device[]>([])
 
 	useEffect(() => {
 		;(async () => {
 			try {
-				const devicesConfig = DEVICES
+				const devicesConfig = await deviceService.getDevicesConfig()
+				setDevices(devicesConfig)
 				const devicesUpdated: Device[] = []
 
 				const getStatusPromises = devicesConfig.map(async (device: Device) => {
@@ -29,6 +25,7 @@ const DevicesListComponent = ({ filter }: DevicesListProps) => {
 						console.error(error)
 					}
 				})
+
 				await Promise.all(getStatusPromises) // Wait for all promises to resolve
 				setDevices(devicesUpdated)
 			} catch (error) {
@@ -37,15 +34,33 @@ const DevicesListComponent = ({ filter }: DevicesListProps) => {
 		})()
 	}, [])
 
-	const updateStatus = (id: number) => {
-		console.log("updateStatus", id)
+	const updateStatus = (id: number, relayIndex: number, relayStatus: boolean) => {
+		setDevices(
+			(prev) =>
+				prev.map((device) => {
+					if (device.id === id) {
+						return {
+							...device,
+							relays: device.relays?.map((relay, index) => {
+								if (index === relayIndex) {
+									return {
+										...relay,
+										ison: relayStatus,
+									}
+								}
+								return relay
+							}),
+						}
+					}
+					return device
+				}) || []
+		)
 	}
 
 	return (
 		<>
 			<div className={style.itemList}>
 				{devices
-					.filter((device: Device) => device.name.includes(filter))
 					.sort((a: Device, b: Device) => a.order - b.order)
 					.map((device: Device) => (
 						<DeviceComponent key={device.id} {...device} updateStatus={updateStatus} />

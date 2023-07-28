@@ -1,0 +1,50 @@
+.action__button {
+	background-color: rgba(145, 139, 139, 0.883);
+	border-radius: 50%;
+	width: 12rem;
+	aspect-ratio: 1;
+	display: grid;
+	place-content: center;
+	position: relative;
+}
+
+.action__button::after {
+	z-index: -1;
+	content: "";
+	position: absolute;
+	top: .8rem;
+	left: 0.5rem;
+	width: 12rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: rgba(47, 44, 44, 0.37);
+}
+
+.action__button.active::after {
+    opacity: 0;
+}
+
+.action__button:hover {
+	cursor: pointer;
+}
+
+.active {
+	animation: buttonPush 0.3s ease-in-out;
+}
+
+@keyframes buttonPush {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.9);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.icon {
+	height: 8rem;
+	margin: 1rem 0;
+}

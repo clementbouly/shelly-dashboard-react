@@ -1,13 +1,10 @@
-import { useState } from "react"
 import "./App.css"
 import DevicesListComponent from "./components/devicesList/devicesList.component"
 
 function App() {
-	const [filter, setFilter] = useState("")
-
 	const updateBackground = () => {
 		const backgrounds = [
-			// black
+			" linear-gradient(to right, #11998e, #38ef7d)",
 			"linear-gradient(to right, #000000, #000000)",
 			"linear-gradient(to right, #4b79a1, #283e51)",
 			"linear-gradient(to right, #0f2027, #203a43, #2c5364)",
@@ -22,17 +19,12 @@ function App() {
 		}
 	}
 
-	const updateFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setFilter(event.target.value)
-	}
-
 	return (
 		<>
 			<span className="header">
 				<h1 onClick={updateBackground}>Shelly Dashboard v2.0</h1>
-				<input type="text" onInput={updateFilter} />
 			</span>
-			<DevicesListComponent filter={filter} />
+			<DevicesListComponent />
 		</>
 	)
 }
