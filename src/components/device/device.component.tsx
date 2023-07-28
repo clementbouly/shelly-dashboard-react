@@ -1,20 +1,12 @@
 import { Device } from "../../model/device.model"
 import styles from "./device.module.css"
+import DeviceStatusComponent from "./deviceStatus/deviceStatus.component"
 
 interface DeviceComponentProps extends Device {
 	updateStatus: (id: number) => void
 }
 
 const DeviceComponent = ({ updateStatus, ...props }: DeviceComponentProps) => {
-
-	const getStatusColor = () => {
-		if (props.status) {
-			return styles.statusLED__on
-		}
-		return styles.statusLED__off
-		
-	}
-
 	return (
 		<span
 			className={styles.card}
@@ -24,9 +16,7 @@ const DeviceComponent = ({ updateStatus, ...props }: DeviceComponentProps) => {
 		>
 			<h2>{props.name}</h2>
 			<img src={props.icon} alt={props.name} />
-			<span className={styles.LED__container}>
-				<span className={`${styles.statusLED} ${getStatusColor() ?? ""}`}></span>
-			</span>
+			{props.hasStatus && <DeviceStatusComponent {...props} />}
 		</span>
 	)
 }

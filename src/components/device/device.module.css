@@ -9,6 +9,7 @@
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
+	position: relative;
 }
 
 .card:hover {
@@ -29,29 +30,4 @@ img {
 h2 {
 	margin-bottom: 0.5rem;
 	font-size: 2rem;
-}
-
-.LED__container{
-	display: inline-flex;
-    width: 14px;
-    aspect-ratio: 1;
-    background: black;
-    border-radius: 50%;
-}
-
-.statusLED {
-	margin: 0 auto;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-}
-
-.statusLED__on {
-	background-color: #abff00;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -.5px 3.5px .5px, inset #304701 0 -.5px 4.5px, #89ff00 0 1px 6px;
-}
-
-.statusLED__off{
-	background-color: #ff0000;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -.5px 3.5px .5px, inset #4a0000 0 -.5px 4.5px, #ff0000 0 1px 6px;
 }

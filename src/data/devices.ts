@@ -38,7 +38,7 @@ export const DEVICES: Device[] = [
 	},
 	{
 		id: 19,
-		name: "Chargueur Spring",
+		name: "Chargeur Spring",
 		icon: "/src/assets/electricity-cable-svgrepo-com.svg",
 		order: 6,
 		status: true,
