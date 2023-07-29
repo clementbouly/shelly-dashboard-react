@@ -3,8 +3,8 @@
 	border-radius: 1rem;
 	padding: 1.5rem;
 	flex: 1;
-	min-width: 16rem;
-	min-height: 16rem;
+	min-width: 14rem;
+	min-height: 18rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;

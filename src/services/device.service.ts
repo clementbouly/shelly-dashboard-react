@@ -1,6 +1,6 @@
-import { Device, DeviceStatus, Relay } from "../model/device.model";
+import { Device, DeviceStatus, Relay, RelayActionType } from "../model/device.model"
 
-export const API_URL = "http://192.168.11";
+export const API_URL = "http://192.168.11"
 
 const getRelaysStatus = async (id: number): Promise<Relay[]> => {
 	try {
@@ -23,9 +23,9 @@ const getDevicesConfig = async (): Promise<Device[]> => {
 	}
 }
 
-const toggleRelay = async (id: number, relay: number, status: "on"|"off"): Promise<Relay> => {
+const toggleRelay = async (id: number, relayIndex: number, status: RelayActionType): Promise<Relay> => {
 	try {
-		const data = await fetch(`${API_URL}.${id}/relay/${relay}?turn=${status}`)
+		const data = await fetch(`${API_URL}.${id}/relay/${relayIndex}?turn=${status}`)
 		return await data.json()
 	} catch (error) {
 		console.error(error)
@@ -38,4 +38,3 @@ export const deviceService = {
 	getDevicesConfig,
 	toggleRelay,
 }
-

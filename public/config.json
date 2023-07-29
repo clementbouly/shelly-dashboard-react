@@ -4,55 +4,55 @@
 		"name": "VMC F1",
 		"icon": "/assets/two-windmills.svg",
 		"order": 1,
-		"status": false,
-		"hasStatus": true
+		"hasStatus": true,
+		"pilotedType": "DOUBLE"
 	},
 	{
 		"id": 11,
 		"name": "VMC F1 SS",
 		"icon": "/assets/windmill.svg",
 		"order": 2,
-		"status": true,
-		"hasStatus": true
+		"hasStatus": true,
+		"pilotedType": "DOUBLE"
 	},
 	{
 		"id": 18,
 		"name": "Portail Spring 1",
 		"icon": "/assets/garage.svg",
 		"order": 3,
-		"status": true,
-		"hasStatus": false
+		"hasStatus": false,
+		"pilotedType": "SIMPLE"
 	},
 	{
 		"id": 20,
 		"name": "Portail Spring 2",
 		"icon": "/assets/garage-2.svg",
 		"order": 4,
-		"status": true,
-		"hasStatus": false
+		"hasStatus": false,
+		"pilotedType": "SIMPLE"
 	},
 	{
 		"id": 14,
 		"name": "Portail Moto",
 		"icon": "/assets/bike.svg",
 		"order": 5,
-		"status": true,
-		"hasStatus": false
+		"hasStatus": false,
+		"pilotedType": "SIMPLE"
 	},
 	{
 		"id": 19,
 		"name": "Chargeur Spring",
 		"icon": "/assets/electricity-cable-svgrepo-com.svg",
 		"order": 6,
-		"status": true,
-		"hasStatus": true
+		"hasStatus": true,
+		"pilotedType": "NONE"
 	},
 	{
 		"id": 15,
 		"name": "Piscine",
 		"icon": "/assets/water-ladder.svg",
 		"order": 7,
-		"status": true,
-		"hasStatus": true
+		"hasStatus": true,
+		"pilotedType": "NONE"
 	}
 ]
