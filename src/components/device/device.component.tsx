@@ -14,6 +14,7 @@ const DeviceComponent = ({ updateStatus, ...props }: DeviceComponentProps) => {
 		<span className={styles.card}>
 			<h2>{props.name}</h2>
 			<DeviceActionsComponent updateStatus={updateStatus} {...props} />
+
 			{props.pilotedType !== PilotedType.NONE && (
 				<a href={`${API_URL}.${props.id}`}>
 					<SettingIcon className={styles.icon__setting} />

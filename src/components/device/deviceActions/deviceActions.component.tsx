@@ -1,7 +1,10 @@
 import { Device, PilotedType, Relay, RelayActionType } from "../../../model/device.model"
 import { API_URL, deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
+import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
+import { ReactComponent as SettingIcon } from "/src/assets/setting-svgrepo-com.svg"
+
 
 import { useState } from "react"
 
@@ -71,19 +74,18 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 	return (
 		<>
 			<div className={`${styles.action__button} ${isActive ? styles.active : ""}`} onClick={handleClick}>
+				{props.pilotedType === PilotedType.NONE && <SettingIcon className={styles.icon__setting_redirect} />}
 				<img className={styles.icon} src={props.icon} alt={props.name} />
 			</div>
 			<ModalComponent title={props.name} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
 				{props.relays?.map((relay, index) => (
-					<div key={index}>
-						<label className={styles.label}>Vitesse {index + 1}</label>
-						<input
-							className={styles.checkbox}
-							checked={relay.ison}
-							type="checkbox"
-							onChange={(e) => handleChange(e, index)}
-						/>
-					</div>
+					<RelayToggleButton
+						key={index}
+						label={`Vitesse ${index + 1}`}
+						relay={relay}
+						index={index}
+						handleChange={handleChange}
+					/>
 				))}
 			</ModalComponent>
 		</>
