@@ -3,7 +3,7 @@ import { API_URL, deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
 import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
-import { ReactComponent as SettingIcon } from "/src/assets/setting-svgrepo-com.svg"
+import { ReactComponent as ExternalLinkIcon } from "/src/assets/external-link.svg"
 
 
 import { useState } from "react"
@@ -74,7 +74,7 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 	return (
 		<>
 			<div className={`${styles.action__button} ${isActive ? styles.active : ""}`} onClick={handleClick}>
-				{props.pilotedType === PilotedType.NONE && <SettingIcon className={styles.icon__setting_redirect} />}
+				{props.pilotedType === PilotedType.NONE && <ExternalLinkIcon className={styles.icon__setting_redirect} />}
 				<img className={styles.icon} src={props.icon} alt={props.name} />
 			</div>
 			<ModalComponent title={props.name} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

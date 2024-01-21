@@ -22,7 +22,7 @@ const DevicesListComponent = () => {
 							relays,
 						})
 					} catch (error) {
-						console.error(error)
+						console.error("Error fetching device id : ", device.id,  error)
 					}
 				})
 

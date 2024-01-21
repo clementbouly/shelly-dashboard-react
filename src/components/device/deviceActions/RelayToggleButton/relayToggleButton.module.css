@@ -32,7 +32,7 @@
 	aspect-ratio: 1;
 	background: rgba(0, 0, 0, 0.452);
 	border-radius: 50%;
-	border: 6px solid red;
+	border: 6px solid var(--color-led-off);
 }
 
 .checkbox:hover {
@@ -48,11 +48,11 @@
 }
 
 .checkbox:checked ~ .light {
-	border: 6px solid green;
+	border: 6px solid var(--color-led-on);
 }
 
-.active{
-    animation: buttonPush 0.5s ease-in-out;
+.active {
+	animation: buttonPush 0.5s ease-in-out;
 }
 
 @keyframes buttonPush {

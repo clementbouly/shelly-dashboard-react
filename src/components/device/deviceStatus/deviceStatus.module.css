@@ -1,16 +1,15 @@
-
-.status_container{
+.status_container {
 	display: flex;
 	position: absolute;
 	bottom: 0.5rem;
 	right: 0.5rem;
-	
+	text-align: center;
 }
 
-.LED__container{
+.LED__container {
 	display: inline-flex;
-    width: 21px;
-    aspect-ratio: 1;
-    background: black;
-    border-radius: 50%;
+	width: 21px;
+	aspect-ratio: 1;
+	background: black;
+	border-radius: 50%;
 }

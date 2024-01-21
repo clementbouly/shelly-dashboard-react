@@ -5,7 +5,7 @@ function App() {
 	const updateBackground = () => {
 		const backgrounds = [
 			" linear-gradient(to right, #11998e, #38ef7d)",
-			"linear-gradient(to right, #000000, #000000)",
+			"linear-gradient(to right, #141414,#282828,  #3d3b3b)",
 			"linear-gradient(to right, #4b79a1, #283e51)",
 			"linear-gradient(to right, #0f2027, #203a43, #2c5364)",
 			"linear-gradient(to right, #1e3c72, #2a5298)",
@@ -21,10 +21,10 @@ function App() {
 
 	return (
 		<>
-			<span className="header">
-				<h1 onClick={updateBackground}>Shelly Dashboard v2.0</h1>
-			</span>
 			<DevicesListComponent />
+			<div className="footer" onClick={updateBackground}>
+				<h1>Shelly Devices</h1>
+			</div>
 		</>
 	)
 }
