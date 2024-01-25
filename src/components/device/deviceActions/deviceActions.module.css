@@ -7,31 +7,12 @@
 	place-content: center;
 	position: relative;
 	margin-bottom: 4rem;
+	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .action__button:hover {
 	cursor: pointer;
 	background-color: rgb(118, 113, 113);
-}
-
-.action__button::after {
-	z-index: -1;
-	content: "";
-	position: absolute;
-	top: 0.8rem;
-	left: 0.5rem;
-	width: 12rem;
-	aspect-ratio: 1;
-	border-radius: 50%;
-	background-color: rgba(47, 44, 44, 0.37);
-}
-
-.action__button.active::after {
-	opacity: 0;
-}
-
-.active {
-	animation: buttonPush 0.3s ease-in-out;
 }
 
 .icon__setting_redirect {
@@ -46,20 +27,7 @@
 	cursor: pointer;
 }
 
-@keyframes buttonPush {
-	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(0.9);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
 .icon {
 	height: 8rem;
 	margin: 1rem 0;
 }
-

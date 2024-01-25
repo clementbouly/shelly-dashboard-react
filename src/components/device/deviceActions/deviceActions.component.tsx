@@ -1,10 +1,10 @@
+import { motion } from "framer-motion"
 import { Device, PilotedType, Relay, RelayActionType } from "../../../model/device.model"
 import { API_URL, deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
 import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
 import { ReactComponent as ExternalLinkIcon } from "/src/assets/external-link.svg"
-
 
 import { useState } from "react"
 
@@ -13,15 +13,7 @@ interface DeviceActionsProps extends Device {
 }
 
 const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) => {
-	const [isActive, setIsActive] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
-
-	const handleAnimation = () => {
-		setIsActive(true)
-		setTimeout(() => {
-			setIsActive(false)
-		}, 300)
-	}
 
 	const handleModal = () => {
 		setIsModalOpen(true)
@@ -43,8 +35,6 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 	}
 
 	const handleClick = () => {
-		handleAnimation()
-
 		switch (props.pilotedType) {
 			case PilotedType.NONE:
 				goToDeviceSettings()
@@ -73,10 +63,17 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 
 	return (
 		<>
-			<div className={`${styles.action__button} ${isActive ? styles.active : ""}`} onClick={handleClick}>
-				{props.pilotedType === PilotedType.NONE && <ExternalLinkIcon className={styles.icon__setting_redirect} />}
+			<motion.button
+				whileHover={{ scale: 1.1 }}
+				whileTap={{ scale: 0.9 }}
+				className={styles.action__button}
+				onClick={handleClick}
+			>
+				{props.pilotedType === PilotedType.NONE && (
+					<ExternalLinkIcon className={styles.icon__setting_redirect} />
+				)}
 				<img className={styles.icon} src={props.icon} alt={props.name} />
-			</div>
+			</motion.button>
 			<ModalComponent title={props.name} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
 				{props.relays?.map((relay, index) => (
 					<RelayToggleButton
