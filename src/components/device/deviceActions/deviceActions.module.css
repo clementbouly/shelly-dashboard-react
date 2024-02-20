@@ -8,11 +8,14 @@
 	position: relative;
 	margin-bottom: 4rem;
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
+	border: none;
+	transition: all 0.5s ease;
 }
 
 .action__button:hover {
 	cursor: pointer;
 	background-color: rgb(118, 113, 113);
+	box-shadow: 5px 5px 2.5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .icon__setting_redirect {
