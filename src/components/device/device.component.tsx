@@ -25,15 +25,12 @@ const DeviceComponent = ({ ...props }: DeviceComponentProps) => {
 		return relays
 	}
 
-	const { error } = useQuery<Relay[], Error>({
+	const { error, isLoading } = useQuery<Relay[], Error>({
 		queryKey: ["relays", props.id],
 		queryFn: () => updateRelaysStatus(props.id),
 		enabled: props.hasStatus,
+		retry: false,
 	})
-
-	if (error) {
-		console.error("Error from device", error)
-	}
 
 	return (
 		<span className={styles.card}>
@@ -47,6 +44,13 @@ const DeviceComponent = ({ ...props }: DeviceComponentProps) => {
 			)}
 
 			{props.hasStatus && <DeviceStatusComponent {...props} />}
+			{isLoading && <p>Loading...</p>}
+			{error && (
+				<p className={styles.error}>
+					Erreur
+					<span className={styles.tooltiptext}>Impossible de se connecter au module Shelly</span>
+				</p>
+			)}
 		</span>
 	)
 }
