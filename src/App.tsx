@@ -1,5 +1,6 @@
 import "./App.css"
 import DevicesListComponent from "./components/devicesList/devicesList.component"
+import { DevicesStoreProvider } from "./store/devices.store"
 
 function App() {
 	const updateBackground = () => {
@@ -20,12 +21,12 @@ function App() {
 	}
 
 	return (
-		<>
+		<DevicesStoreProvider>
 			<DevicesListComponent />
 			<div className="footer" onClick={updateBackground}>
-				<h1>Shelly Devices</h1>
+				<h1>Shelly Dashboard v3.0</h1>
 			</div>
-		</>
+		</DevicesStoreProvider>
 	)
 }
 

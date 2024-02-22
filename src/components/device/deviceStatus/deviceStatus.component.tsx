@@ -15,9 +15,12 @@ const StatusLED = styled.span<{ $ison: boolean }>`
 		inset ${(props) => (props.$ison ? "#304701" : "#4a0000")} 0 -0.75px 7px,
 		${(props) => (props.$ison ? "#89ff00" : "#ff0000")} 0 1.5px 9px;
 `
+
 const DeviceStatusComponent = (props: Device) => {
+	const { relays } = props
+
 	const displayRelayNumber = (index: number) => {
-		if (props.relays && props.relays.length > 1) {
+		if (relays && relays.length > 1) {
 			return index + 1
 		}
 		return ""
@@ -25,7 +28,7 @@ const DeviceStatusComponent = (props: Device) => {
 
 	return (
 		<div className={styles.status_container}>
-			{props.relays?.map((relay, index) => {
+			{relays?.map((relay, index) => {
 				return (
 					<span key={index} className={styles.LED__container}>
 						<StatusLED $ison={relay.ison}>{displayRelayNumber(index)}</StatusLED>
