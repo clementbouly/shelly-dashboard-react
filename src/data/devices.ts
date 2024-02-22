@@ -58,3 +58,22 @@ export const DEVICES: Device[] = [
 		pilotedType: PilotedType.NONE,
 	},
 ]
+
+/*
+{
+		"id": 19,
+		"name": "Chargeur Spring",
+		"icon": "/assets/electricity-cable-svgrepo-com.svg",
+		"order": 6,
+		"hasStatus": true,
+		"pilotedType": "NONE"
+	},
+	{
+		"id": 15,
+		"name": "Piscine",
+		"icon": "/assets/water-ladder.svg",
+		"order": 7,
+		"hasStatus": true,
+		"pilotedType": "NONE"
+	}
+	*/

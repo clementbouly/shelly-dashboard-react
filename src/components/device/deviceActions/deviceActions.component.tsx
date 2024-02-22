@@ -1,18 +1,25 @@
 import { motion } from "framer-motion"
-import { Device, PilotedType, Relay, RelayActionType } from "../../../model/device.model"
+import { Device, PilotedType, RelayActionType } from "../../../model/device.model"
 import { API_URL, deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
 import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
 import { ReactComponent as ExternalLinkIcon } from "/src/assets/external-link.svg"
 
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 
-interface DeviceActionsProps extends Device {
-	updateStatus: (id: number, relayIndex: number, relayStatus: boolean) => void
-}
+const DeviceActionsComponent = (props: Device) => {
+	const queryClient = useQueryClient()
 
-const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) => {
+	const toggleRelayMutation = useMutation({
+		mutationKey: ["toggleRelay"],
+		mutationFn: ({ id, relayIndex, status }: { id: number; relayIndex: number; status: RelayActionType }) =>
+			deviceService.toggleRelay(id, relayIndex, status),
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ["relays"] })
+		},
+	})
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const handleModal = () => {
@@ -20,14 +27,18 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 	}
 
 	const handleSimpleRelayAction = () => {
-		deviceService
-			.toggleRelay(props.id, 0, RelayActionType.ON)
-			.then(() => {
-				console.log(`${props.name} is OPENING/CLOSING`)
-			})
-			.catch((error) => {
-				console.log("error", error)
-			})
+		toggleRelayMutation.mutate(
+			{
+				id: props.id,
+				relayIndex: 0,
+				status: RelayActionType.ON,
+			},
+			{
+				onSuccess: () => {
+					console.log(`${props.name} is OPENING/CLOSING`)
+				},
+			}
+		)
 	}
 
 	const goToDeviceSettings = () => {
@@ -51,14 +62,11 @@ const DeviceActionsComponent = ({ updateStatus, ...props }: DeviceActionsProps) 
 	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-		deviceService
-			.toggleRelay(props.id, index, e.target.checked ? RelayActionType.ON : RelayActionType.OFF)
-			.then((relayData: Relay) => {
-				updateStatus(props.id, index, relayData.ison)
-			})
-			.catch((error) => {
-				console.log("error", error)
-			})
+		toggleRelayMutation.mutate({
+			id: props.id,
+			relayIndex: index,
+			status: e.target.checked ? RelayActionType.ON : RelayActionType.OFF,
+		})
 	}
 
 	return (
