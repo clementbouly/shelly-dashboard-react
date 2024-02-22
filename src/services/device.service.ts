@@ -8,8 +8,7 @@ const getRelaysStatus = async (id: number): Promise<Relay[]> => {
 		const deviceStatus: DeviceStatus = await data.json()
 		return deviceStatus.relays
 	} catch (error: any) {
-		console.log("Error fetching device id : ", id, error)
-		return []
+		throw new Error(error)
 	}
 }
 
@@ -17,9 +16,8 @@ const getDevicesConfig = async (): Promise<Device[]> => {
 	try {
 		const data = await fetch("/config.json")
 		return await data.json()
-	} catch (error) {
-		console.error(error)
-		return []
+	} catch (error: any) {
+		throw new Error(error)
 	}
 }
 

@@ -10,10 +10,10 @@ const StatusLED = styled.span<{ $ison: boolean }>`
 	font-size: 1.2rem;
 	font-weight: bold;
 	color: black;
-	background-color: ${(props) => (props.$ison ? "#abff00" : "#ff0000")};
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -0.75px 5px 0.75px,
+	background-color: ${(props) => (props.$ison ? "#abff00" : "#dee0db")};
+	box-shadow: rgba(0, 0, 0, 0.145) 0 -0.75px 5px 0.75px,
 		inset ${(props) => (props.$ison ? "#304701" : "#4a0000")} 0 -0.75px 7px,
-		${(props) => (props.$ison ? "#89ff00" : "#ff0000")} 0 1.5px 9px;
+		${(props) => (props.$ison ? "#89ff00" : "#a5a8a1")} 0 1.5px 9px;
 `
 
 const DeviceStatusComponent = (props: Device) => {
