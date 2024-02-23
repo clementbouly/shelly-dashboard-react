@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react"
 import { Relay } from "../../../../model/device.model"
 import styles from "./relayToggleButton.module.css"
-import { ReactComponent as SwitchIcon } from "/src/assets/on-off.svg"
+import SwitchIcon from "/src/assets/on-off.svg?react"
 
 interface RelayToggleButtonProps {
 	label: string

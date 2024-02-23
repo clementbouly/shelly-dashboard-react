@@ -4,7 +4,7 @@ import { API_URL, deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
 import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
-import { ReactComponent as ExternalLinkIcon } from "/src/assets/external-link.svg"
+import ExternalLinkIcon from "/src/assets/external-link.svg?react"
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"

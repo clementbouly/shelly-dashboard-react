@@ -1,4 +1,4 @@
-import { ReactComponent as CloseIcon } from "../assets/close.svg"
+import CloseIcon from "../assets/close.svg?react"
 import styles from "./modal.module.css"
 
 interface ModalProps {

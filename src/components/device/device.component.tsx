@@ -5,7 +5,7 @@ import { API_URL, deviceService } from "../../services/device.service"
 import styles from "./device.module.css"
 import DeviceActionsComponent from "./deviceActions/deviceActions.component"
 import DeviceStatusComponent from "./deviceStatus/deviceStatus.component"
-import { ReactComponent as SettingIcon } from "/src/assets/setting-svgrepo-com.svg"
+import SettingIcon from "/src/assets/setting-svgrepo-com.svg?react"
 
 interface DeviceComponentProps extends Device {}
 
