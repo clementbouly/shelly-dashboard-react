@@ -43,7 +43,7 @@ const DeviceComponent = ({ ...props }: DeviceComponentProps) => {
 				</a>
 			)}
 
-			{props.hasStatus && <DeviceStatusComponent {...props} />}
+			{props.hasStatus && <DeviceStatusComponent relays={props.relays} />}
 			{isLoading && <p>Loading...</p>}
 			{error && (
 				<p className={styles.error}>

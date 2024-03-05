@@ -4,8 +4,8 @@ type FooterProps = {
 
 export function Footer({ updateBackground }: FooterProps) {
 	return (
-		<div className="footer" onClick={updateBackground} data-testid="footer">
+		<footer className="footer" onClick={updateBackground}>
 			<h1>Shelly Dashboard v3.0</h1>
-		</div>
+		</footer>
 	)
 }
