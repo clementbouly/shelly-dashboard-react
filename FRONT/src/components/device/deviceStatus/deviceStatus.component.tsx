@@ -30,9 +30,10 @@ const ErrorLed = styled.span`
 
 const DeviceStatusComponent = ({ relays }: { relays: Relay[] | undefined }) => {
 	const displayRelayNumber = (index: number) => {
-		if (relays && relays.length > 0) {
+		if (relays && relays.length > 1) {
 			return index + 1
 		}
+
 		return ""
 	}
 
@@ -49,7 +50,7 @@ const DeviceStatusComponent = ({ relays }: { relays: Relay[] | undefined }) => {
 				relays?.map((relay, index) => {
 					return (
 						<span key={index} className={styles.LED__container}>
-							<StatusLED data-testid={`status-led-${index}`} $ison={relay.ison}>
+							<StatusLED role="switch" $ison={relay.ison} aria-checked={relay.ison}>
 								{displayRelayNumber(index)}
 							</StatusLED>
 						</span>

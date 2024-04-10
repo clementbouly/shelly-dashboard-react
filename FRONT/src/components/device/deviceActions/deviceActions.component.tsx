@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Device, PilotedType, RelayActionType } from "../../../model/device.model"
-import { API_URL, deviceService } from "../../../services/device.service"
+import { deviceService } from "../../../services/device.service"
 import ModalComponent from "../../../shared/modal.component"
 import RelayToggleButton from "./RelayToggleButton/relayToggleButton.component"
 import styles from "./deviceActions.module.css"
@@ -42,7 +42,8 @@ const DeviceActionsComponent = (props: Device) => {
 	}
 
 	const goToDeviceSettings = () => {
-		window.location.href = `${API_URL}.${props.id}`
+		// ouvrir un nouvel onglet avec l'url de l'api
+		window.open(`https://img.shields.io/badge/settings-${props.name}-blue`, "_blank")
 	}
 
 	const handleClick = () => {

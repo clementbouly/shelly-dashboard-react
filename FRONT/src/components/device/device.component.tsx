@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { memo } from "react"
 import { Device, PilotedType, Relay } from "../../model/device.model"
-import { API_URL, deviceService } from "../../services/device.service"
+import { deviceService } from "../../services/device.service"
 import styles from "./device.module.css"
 import DeviceActionsComponent from "./deviceActions/deviceActions.component"
 import DeviceStatusComponent from "./deviceStatus/deviceStatus.component"
@@ -38,7 +38,7 @@ const DeviceComponent = ({ ...props }: DeviceComponentProps) => {
 			<DeviceActionsComponent {...props} />
 
 			{props.pilotedType !== PilotedType.NONE && (
-				<a href={`${API_URL}.${props.id}`}>
+				<a href={`https://img.shields.io/badge/settings-${props.name}-blue`} target="_blank">
 					<SettingIcon className={styles.icon__setting} />
 				</a>
 			)}

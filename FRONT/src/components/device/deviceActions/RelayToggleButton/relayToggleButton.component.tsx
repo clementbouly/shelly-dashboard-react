@@ -13,6 +13,7 @@ interface RelayToggleButtonProps {
 const RelayToggleButton = (props: RelayToggleButtonProps) => {
 	const [isActive, setIsActive] = useState(false)
 
+	// TODO : Use Framer Motion to animate the switch
 	const handleAnimation = () => {
 		setIsActive(true)
 		setTimeout(() => {
